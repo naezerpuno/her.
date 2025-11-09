@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorite Memories - My Personal Space</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="memories-page">
+    
+    <div class="page-container">
+        <!-- Back Button -->
+        <button class="back-btn" onclick="goBackFromMemories()">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+            <span>Back</span>
+        </button>
+
+        <!-- Memories Gallery -->
+        <div id="memories-gallery" class="memories-container">
+            <h2 class="memories-title slide-down">Cherished Moments</h2>
+            
+            <!-- Wire -->
+            <div class="wire"></div>
+            
+            <!-- Memory Photos Grid -->
+            <div id="photos-grid" class="photos-grid"></div>
+        </div>
+
+        <!-- Expanded Memory View (Hidden by default) -->
+        <div id="expanded-memory" class="expanded-memory hidden">
+            <div class="memory-detail scale-in">
+                <div class="memory-image-container">
+                    <img id="expanded-image" src="" alt="" class="memory-image">
+                    <div class="image-overlay"></div>
+                    <h3 id="expanded-caption" class="memory-overlay-title"></h3>
+                </div>
+                <div class="memory-story-container">
+                    <div class="now-playing">
+                        <svg class="music-icon pulse" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M9 18V5l12-2v13"></path>
+                            <circle cx="6" cy="18" r="3"></circle>
+                            <circle cx="18" cy="16" r="3"></circle>
+                        </svg>
+                        <span id="song-name">Now playing: Memory Song</span>
+                    </div>
+                    <p id="expanded-story" class="memory-story"></p>
+                    <button onclick="closeMemory()" class="close-memory-btn">Close Memory</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Memory Music -->
+        <audio id="memory-music" loop>
+            <source src="music/memory.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <!-- Floating Hearts Container -->
+    <div id="hearts-container"></div>
+
+    <script src="js/script.js"></script>
+    <script>
+        // Initialize memories page
+        if (typeof initMemoriesPage === 'function') {
+            initMemoriesPage();
+        }
+    </script>
+</body>
+</html>
